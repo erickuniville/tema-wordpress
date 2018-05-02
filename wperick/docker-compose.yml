@@ -1,0 +1,20 @@
+version: '2.0'
+
+services:
+   wordpress:
+     image: erick:wordpress
+     ports:
+       - "8009:80"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: wordpress:8009
+       WORDPRESS_DB_HOST: 172.23.0.2:3306
+       WORDPRESS_DB_NAME: erick
+       WORDPRESS_DB_USER: root
+       WORDPRESS_DB_PASSWORD: somewordpress
+     networks:
+       - dacs2018
+networks:
+  dacs2018:
+    external:
+       name: dacs2018
